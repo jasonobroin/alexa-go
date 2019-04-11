@@ -31,31 +31,35 @@ type Response struct {
 
 // ResBody is the actual body of the response
 type ResBody struct {
-	OutputSpeech     *Payload  `json:"outputSpeech,omitempty"`
-	Card             *Payload  `json:"card,omitempty"`
-	Reprompt         *Reprompt `json:"reprompt,omitempty"`
+	OutputSpeech     *Payload     `json:"outputSpeech,omitempty"`
+	Card             *Payload     `json:"card,omitempty"`
+	Reprompt         *Reprompt    `json:"reprompt,omitempty"`
 	Directives       []Directives `json:"directives,omitempty"`
-	ShouldEndSession bool      `json:"shouldEndSession"`
+	ShouldEndSession bool         `json:"shouldEndSession"`
 }
 
-// Reprompt is imformation
+// Reprompt is information
 type Reprompt struct {
 	OutputSpeech Payload `json:"outputSpeech,omitempty"`
 }
 
-// Directives is imformation
+type Stream struct {
+	Token                string `json:"token,omitempty"`
+	URL                  string `json:"url,omitempty"`
+	OffsetInMilliseconds int    `json:"offsetInMilliseconds,omitempty"`
+}
+
+type AudioItem struct {
+	Stream *Stream `json:"stream,omitempty"`
+}
+
+// Directives is information
 type Directives struct {
 	Type          string         `json:"type,omitempty"`
 	SlotToElicit  string         `json:"slotToElicit,omitempty"`
 	UpdatedIntent *UpdatedIntent `json:"UpdatedIntent,omitempty"`
 	PlayBehavior  string         `json:"playBehavior,omitempty"`
-	AudioItem     struct {
-		Stream struct {
-			Token                string `json:"token,omitempty"`
-			URL                  string `json:"url,omitempty"`
-			OffsetInMilliseconds int    `json:"offsetInMilliseconds,omitempty"`
-		} `json:"stream,omitempty"`
-	} `json:"audioItem,omitempty"`
+	AudioItem     *AudioItem     `json:"audioItem,omitempty"`
 }
 
 // UpdatedIntent is to update the Intent
