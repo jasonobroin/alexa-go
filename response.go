@@ -44,9 +44,10 @@ type Reprompt struct {
 }
 
 type Stream struct {
-	Token                string `json:"token,omitempty"`
-	URL                  string `json:"url,omitempty"`
-	OffsetInMilliseconds int    `json:"offsetInMilliseconds,omitempty"`
+	Token                 string `json:"token,omitempty"`
+	ExpectedPreviousToken string `json:"expectedPreviousToken,omitempty"`
+	URL                   string `json:"url,omitempty"`
+	OffsetInMilliseconds  int    `json:"offsetInMilliseconds,omitempty"`
 }
 
 type AudioItem struct {

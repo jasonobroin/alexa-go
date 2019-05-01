@@ -12,6 +12,26 @@ const (
 
 	//StopIntent is the Alexa built-in Stop Intent
 	StopIntent = "AMAZON.StopIntent"
+
+	//PauseIntent is the Alexa built-in Pause Intent
+	PauseIntent = "AMAZON.PauseIntent"
+
+	//NextIntent is the Alexa built-in Next Intent
+	NextIntent = "AMAZON.NextIntent"
+
+	//PreviousIntent is the Alexa built-in Previous Intent
+	PreviousIntent = "AMAZON.PreviousIntent"
+
+	//ResumeIntent is the Alexa built-in Resume Intent
+	ResumeIntent = "AMAZON.ResumeIntent"
+)
+
+// AudioPlayer intents
+const (
+	AudioPlayerPlaybackStarted        = "AudioPlayer.PlaybackStarted"
+	AudioPlayerPlaybackStopped        = "AudioPlayer.PlaybackStopped"
+	AudioPlayerPlaybackFinished       = "AudioPlayer.PlaybackFinished"
+	AudioPlayerPlaybackNearlyFinished = "AudioPlayer.PlaybackNearlyFinished"
 )
 
 // locales
@@ -98,13 +118,15 @@ type Context struct {
 
 // ReqBody is the actual request information
 type ReqBody struct {
-	Type      string `json:"type"`
-	RequestID string `json:"requestId"`
-	Timestamp string `json:"timestamp"`
-	Locale    string `json:"locale"`
-	Intent    Intent `json:"intent,omitempty"`
-	Reason    string `json:"reason,omitempty"`
-	DialogState string `json:"dialogState,omitempty"`
+	Type                 string `json:"type"`
+	RequestID            string `json:"requestId"`
+	Timestamp            string `json:"timestamp"`
+	Token                string `json:"token"`
+	OffsetInMilliseconds int    `json:offsetInMilliseconds"`
+	Locale               string `json:"locale"`
+	Intent               Intent `json:"intent,omitempty"`
+	Reason               string `json:"reason,omitempty"`
+	DialogState          string `json:"dialogState,omitempty"`
 }
 
 // Intent is the Alexa skill intent
@@ -115,15 +137,15 @@ type Intent struct {
 
 // Slot is an Alexa skill slot
 type Slot struct {
-	Name  			  string `json:"name"`
-	Value 			  string `json:"value"`
-	Resolutions  Resolutions `json:"resolutions"`
+	Name        string      `json:"name"`
+	Value       string      `json:"value"`
+	Resolutions Resolutions `json:"resolutions"`
 }
 
 type Resolutions struct {
-	ResolutionPerAuthority []struct{
-		Values []struct{
-			Value struct{
+	ResolutionPerAuthority []struct {
+		Values []struct {
+			Value struct {
 				Name string `json:"name"`
 				Id   string `json:"id"`
 			} `json:"value"`
