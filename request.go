@@ -30,6 +30,7 @@ const (
 	ShuffleOnIntent  = "AMAZON.ShuffleOnIntent"
 	ShuffleOffIntent = "AMAZON.ShuffleOffIntent"
 	StartOverIntent  = "AMAZON.StartOverIntent"
+	RepeatIntent     = "AMAZON.RepeatIntent"
 )
 
 // AudioPlayer intents
