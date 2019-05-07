@@ -24,6 +24,12 @@ const (
 
 	//ResumeIntent is the Alexa built-in Resume Intent
 	ResumeIntent = "AMAZON.ResumeIntent"
+
+	LoopOnIntent     = "AMAZON.LoopOnIntent"
+	LoopOffIntent    = "AMAZON.LoopOffIntent"
+	ShuffleOnIntent  = "AMAZON.ShuffleOnIntent"
+	ShuffleOffIntent = "AMAZON.ShuffleOffIntent"
+	StartOverIntent  = "AMAZON.StartOverIntent"
 )
 
 // AudioPlayer intents
