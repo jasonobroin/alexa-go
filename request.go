@@ -2,6 +2,12 @@ package alexa
 
 // constants
 
+// Intent types
+const (
+	IntentRequest = "IntentRequest"
+	LaunchRequest = "LaunchRequest"
+)
+
 // built in intents
 const (
 	//HelpIntent is the Alexa built-in Help Intent
