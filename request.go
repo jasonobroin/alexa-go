@@ -40,6 +40,14 @@ const (
 	AudioPlayerPlaybackNearlyFinished = "AudioPlayer.PlaybackNearlyFinished"
 )
 
+// PlaybackController intents
+const (
+	PlaybackControllerNextCommandIssued     = "PlaybackController.NextCommandIssued"
+	PlaybackControllerPauseCommandIssued    = "PlaybackController.PauseCommandIssued"
+	PlaybackControllerPlayCommandIssued     = "PlaybackController.PlayCommandIssued"
+	PlaybackControllerPreviousCommandIssued = "PlaybackController.PreviousCommandIssued"
+)
+
 // locales
 const (
 	// LocaleItalian is the locale for Italian
