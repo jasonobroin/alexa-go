@@ -51,7 +51,23 @@ type Stream struct {
 }
 
 type AudioItem struct {
-	Stream *Stream `json:"stream,omitempty"`
+	Stream   *Stream   `json:"stream,omitempty"`
+	MetaData *MetaData `json:"metadata,omitempty"`
+}
+
+type URL struct {
+	Url string `json:"url,omitempty"`
+}
+
+type Sources struct {
+	Source []URL `json:"sources,omitempty"`
+}
+
+type MetaData struct {
+	Title           string   `json:"title,omitempty"`
+	SubTitle        string   `json:"subtitle,omitempty"`
+	Art             *Sources `json:"art,omitempty"`
+	BackgroundImage *Sources `json:"backgroundImage,omitempty"`
 }
 
 // Directives is information
